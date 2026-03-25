@@ -99,3 +99,7 @@ After ~30 seconds you should see rows appearing in BigQuery. Run the queries in 
 
 ## Stack
 Python · Google Cloud Pub/Sub · Cloud Functions (Gen2) · BigQuery · Looker Studio · Eventarc · GCP IAM
+
+## Architecture diagram
+
+![Architecture](screenshots/architecture.jpg)

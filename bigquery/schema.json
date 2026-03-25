@@ -1,0 +1,12 @@
+[
+  {"name": "event_id",    "type": "STRING",    "mode": "REQUIRED"},
+  {"name": "event_type",  "type": "STRING",    "mode": "REQUIRED"},
+  {"name": "component",   "type": "STRING",    "mode": "REQUIRED"},
+  {"name": "user_id",     "type": "STRING",    "mode": "REQUIRED"},
+  {"name": "session_id",  "type": "STRING",    "mode": "REQUIRED"},
+  {"name": "timestamp",   "type": "TIMESTAMP", "mode": "REQUIRED"},
+  {"name": "latency_ms",  "type": "INTEGER",   "mode": "NULLABLE"},
+  {"name": "status_code", "type": "INTEGER",   "mode": "NULLABLE"},
+  {"name": "endpoint",    "type": "STRING",    "mode": "NULLABLE"},
+  {"name": "metadata",    "type": "STRING",    "mode": "NULLABLE"}
+]

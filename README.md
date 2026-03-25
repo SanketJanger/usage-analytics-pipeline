@@ -102,8 +102,4 @@ Python · Google Cloud Pub/Sub · Cloud Functions (Gen2) · BigQuery · Looker S
 
 ## Architecture diagram
 
-![Architecture](screenshots/architecture.jpg)
-
-## Architecture diagram
-
 ![Architecture](screenshots/architecture.png)

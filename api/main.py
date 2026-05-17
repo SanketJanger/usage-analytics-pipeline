@@ -1,7 +1,8 @@
 from fastapi import FastAPI, Query
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from google.cloud import bigquery
 from datetime import datetime, timezone
-from typing import Optional
 
 app = FastAPI(
     title="Usage Analytics API",
@@ -16,6 +17,17 @@ client     = bigquery.Client(project=PROJECT_ID)
 
 def run_query(sql: str):
     return [dict(row) for row in client.query(sql).result()]
+
+@app.get("/")
+def root():
+    return {
+        "service": "Usage Analytics API",
+        "version": "1.0.0",
+        "pipeline": "GCP Pub/Sub → Cloud Function → BigQuery",
+        "endpoints": ["/health", "/events/volume", "/events/errors", "/events/latest", "/events/users", "/dashboard"],
+        "docs": "/docs",
+        "dashboard": "/dashboard"
+    }
 
 @app.get("/health")
 def health():
@@ -106,3 +118,9 @@ def user_activity(hours: int = Query(default=24, ge=1, le=168)):
         "window_hours": hours,
         "data": rows
     }
+
+@app.get("/dashboard")
+def dashboard():
+    return FileResponse("static/dashboard.html")
+
+app.mount("/static", StaticFiles(directory="static"), name="static")

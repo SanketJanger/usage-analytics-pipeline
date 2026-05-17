@@ -27,7 +27,7 @@ The pipeline captures two kinds of events: what users are doing in the UI (click
 - **FastAPI on Cloud Run**: REST API layer exposing BigQuery data as live endpoints. Auto-alerts when any endpoint crosses 30% error rate.
 - **Live Dashboard**: Single-page app served from Cloud Run. Pipeline flow animation, real-time charts, error rate monitoring, live event feed. Auto-refreshes every 10 seconds.
 
-![Architecture](screenshots/gcp_pipeline_architecture_v2.svg)
+![Architecture](screenshots/Updated_Architecture.png)
 
 ---
 

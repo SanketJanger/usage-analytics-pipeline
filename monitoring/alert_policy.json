@@ -1,0 +1,26 @@
+{
+  "displayName": "High API Error Rate Alert",
+  "combiner": "OR",
+  "conditions": [
+    {
+      "displayName": "Error rate exceeds 30%",
+      "conditionThreshold": {
+        "filter": "resource.type=\"cloud_run_revision\" AND metric.type=\"run.googleapis.com/request_count\" AND metric.labels.response_code_class!=\"2xx\"",
+        "aggregations": [
+          {
+            "alignmentPeriod": "300s",
+            "perSeriesAligner": "ALIGN_RATE"
+          }
+        ],
+        "comparison": "COMPARISON_GT",
+        "thresholdValue": 0.3,
+        "duration": "60s"
+      }
+    }
+  ],
+  "notificationChannels": ["projects/usage-analytics-pipeline/notificationChannels/7006596445200241383"],
+  "documentation": {
+    "content": "API error rate has exceeded 30% on the usage analytics pipeline. Check https://usage-analytics-api-518291172957.us-central1.run.app/events/errors for details.",
+    "mimeType": "text/markdown"
+  }
+}

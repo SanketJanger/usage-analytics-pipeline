@@ -4,3 +4,4 @@ __pycache__/
 *.pyc
 .DS_Store
 usage-analytics-pipeline-300913b769a5.json
+*.json
